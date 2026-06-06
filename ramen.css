@@ -1,0 +1,612 @@
+@font-face {
+    font-family: 'MochiGreen';
+    /* Wrapped securely; consider renaming your file to Mochi-Green.otf for total safety */
+    src: url('mochi_green/Mochi Green.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'MochiGreen', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.ticker-wrapper {
+    width: 100%;
+    background-color: #000000; /* Crisp black background makes the text pop */
+    overflow: hidden;          /* Hides the text that goes off the screen */
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
+    white-space: nowrap;       
+}
+
+/* Ticker Text Container: layout and animation speed */
+.ticker-text {
+    display: inline-block;
+    padding-left: 100%;       
+    animation: marquee 25s linear infinite;
+}
+
+.ticker-text span {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ffd700;            
+    letter-spacing: 1.5px;
+    margin-right: 50px;       
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0); /* Moves halfway through the duplicate text for a perfect smooth reset loop */
+    }
+}
+
+body {
+   background-image: linear-gradient(to bottom, #110d0c 0%, #8b1111 50%, #d47a22 100%);
+   background-attachment: fixed; 
+   min-height: 100vh; 
+   margin: 0 auto; 
+}
+
+.navbar {
+    display: flex; 
+}
+
+.navbar ul {
+    display: flex; 
+    gap: 30px; 
+    list-style-type: none;
+    justify-content: center; 
+    flex-direction: row; 
+}
+
+/* SIDEBAR SECTION */ 
+
+.ramen-sidebar {
+    display: inline-block; 
+    text-decoration: none; 
+    font-weight: bold; 
+    line-height: 1.6;
+    
+    /* UPDATED: Changed the middle color to a brighter, more vibrant shade 
+       and adjusted the stops to remove the "murky" black transition */
+    background-image: linear-gradient(to bottom, #ff3333 0%, #ff6600 50%, #ffcc00 100%);
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important; 
+    transition: all 0.3s ease;
+}
+
+.ramen-sidebar:hover {
+    /* Brighter hover effect */
+    background-image: linear-gradient(to bottom, #ffffff 0%, #ff5555 50%, #ffaa00 100%); 	
+    filter: drop-shadow(0px 0px 4px rgba(255, 100, 50, 0.6));
+    color: transparent; 
+    cursor: pointer; 
+}
+
+.ramen-sidebar:active {
+    color: red; 
+}
+
+.ramen-sidebar:visited {
+    text-decoration: none; 
+    list-style-type: none;
+    background-image: linear-gradient(to bottom, #ff0000 0%, #000000 45%, #ff8c00 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.king-mart-sidebar {
+    display: inline-flex;        
+    align-items: center;         
+    gap: 8px;                   
+    text-decoration: none; 
+    font-weight: bold; 
+    line-height: 1.6;
+   
+    background-image: linear-gradient(to bottom, #ffe066 0%, #ff4d4d 60%, #ff4d4d 100%);
+    color: transparent !important; 
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: filter 0.2s ease-in-out;
+}
+
+.king-mart-sidebar:hover {
+    background-image: linear-gradient(to bottom, #ff4d4d 0%, #ffd000 70%, #ffe066 100%);    
+    filter: drop-shadow(0px 0px 4px rgba(255, 234, 0, 0.6));
+    cursor: pointer; 
+}
+
+.boba-sidebar {
+    display: inline-block; 
+    text-decoration: none; 
+    font-weight: bold; 
+    line-height: 1.6;
+    color: transparent;
+    background-image: linear-gradient(to bottom, #f5e6d3 0%, #c68b59 50%, #2b1810 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: filter 0.2s ease-in-out;
+}
+
+.boba-sidebar:active {
+    color: transparent; 
+    background-image: linear-gradient(to bottom, #f5e6d3 0%, #c68b59 50%, #2b1810 100%);
+}
+
+.boba-sidebar:visited {
+    background-image: linear-gradient(to bottom, #f5e6d3 0%, #c68b59 50%, #2b1810 100%);
+    color: transparent; 
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.boba-sidebar:hover {
+    background-image: linear-gradient(to bottom, #ffffff 0%, #e6a15c 50%, #61361c 100%);
+    filter: drop-shadow(0px 0px 4px rgba(230, 161, 92, 0.7));
+    cursor: pointer; 
+}
+
+.produce-sidebar {
+    display: inline-block; 
+    text-decoration: none; 
+    font-weight: bold; 
+    line-height: 1.6;
+    background-image: linear-gradient(to bottom, #a3ff00 0%, #10d300 50%, #004d00 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; 
+    transition: filter 0.2s ease-in-out; 
+}
+
+.produce-sidebar:active {
+    color: transparent; 
+    background-image: linear-gradient(to bottom, #a3ff00 0%, #10d300 50%, #004d00 100%);
+}
+
+.produce-sidebar:hover {
+    background-image: linear-gradient(to bottom, #ffffff 0%, #bdff33 50%, #0db000 100%);
+    filter: drop-shadow(0px 0px 4px rgba(163, 255, 0, 0.7));
+    cursor: pointer;
+}
+
+.produce-sidebar:visited {
+    background-image: linear-gradient(to bottom, #a3ff00 0%, #10d300 50%, #004d00 100%);
+    color: transparent; 
+    -webkit-background-clip: text;
+    background-clip: text; 
+}
+
+.merch-sidebar {
+    display: inline-block; 
+    text-decoration: none; 
+    font-weight: bold; 
+    line-height: 1.6;
+    background-image: linear-gradient(to bottom, #ff007f 0%, #7b2cbf 50%, #00f0ff 100%);
+    background-clip: text; 
+    -webkit-background-clip: text;
+    color: transparent; 
+    transition: filter 0.2s ease-in-out; 
+}
+
+.merch-sidebar:active {
+    color: transparent; 
+    background-image: linear-gradient(to bottom, #ff007f 0%, #7b2cbf 50%, #00f0ff 100%);
+}
+
+.merch-sidebar:visited {
+    background-image: linear-gradient(to bottom, #ff007f 0%, #7b2cbf 50%, #00f0ff 100%);
+    background-clip: text; 
+    color: transparent; 
+    -webkit-background-clip: text;
+}
+
+.merch-sidebar:hover {
+    background-image: linear-gradient(to bottom, #ffffff 0%, #ff66b2 50%, #00f0ff 100%);
+    filter: drop-shadow(0px 0px 4px rgba(255, 0, 127, 0.8));
+    cursor: pointer; 
+}
+
+/* UTILITY SIDEBAR */
+
+
+.utility-sidebar {
+    display: flex;
+    background-color: transparent;
+    justify-content: flex-end; 
+    align-items: center;       
+    gap: 15px;                 
+    height: 80px; 
+    
+    padding-right: 20px;       
+}
+
+.cart-btn {
+    width: 50px; 
+    height: auto; 
+    margin-top: -14%; 
+    background: transparent;
+    border: none; 
+    padding: 10px; 
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: scale(1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-btn img {
+    width: 40px;
+    margin-left: 0; 
+    display: block;
+}
+
+.btn-support {
+    background: transparent;
+    border: none; 
+    margin-top: -14%; 
+     margin-right: -27%; 
+    color: #ffd700;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.5, 0.46, 0.45, 0.94);
+    transform: scale(1);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.cart-btn:hover, .btn-support:hover {
+    transform: scale(1.08);
+}
+
+
+
+
+
+
+
+
+
+
+/* SIDEBAR SECTION COMPLETE */
+
+
+.navbar ul li a {
+    color: transparent !important;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+
+/* RAMEN LOGO */
+
+
+.header-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Reduce padding from 20px to something tighter like 10px */
+    padding: 10px 20px; 
+    background-color: rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid #ffd700;
+    border-radius: 0 0 12px 12px;
+    /* Use fit-content so it doesn't take up unnecessary vertical space */
+    height: fit-content; 
+}
+
+
+
+
+
+#sidebar-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.centered-logo-wrapper {
+    display: flex;
+    justify-content: center; /* Centers everything */
+    align-items: center;     /* Aligns GIF and Logo vertically */
+    gap: 30px;               /* Space between them */
+    width: 100%;
+}
+
+.ramen-logo-mask {
+    width: 250px; 
+}
+
+.retro-ramen-logo {
+   width: 200px;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+}
+
+.logo-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;    
+    
+    justify-content: space-evenly; 
+    width: 100%;            
+    padding: 0 50px;        
+}
+
+
+
+/* ANIMATED GIFS */
+
+.pokemon-running, .pengu {
+    width: 80px; 
+    height: auto;
+    image-rendering: pixelated;
+}
+
+
+
+
+/* BODY SECTION */
+
+#body-section{
+    padding: 40px 20px; 
+    max-width: 2200px; 
+    margin: 0 auto; 
+    text-align: center; 
+}
+
+
+
+
+.ramen-title h1{
+   font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+    background-image: linear-gradient(to bottom, #ffef78 0%, #f6b73c 50%, #c48c1e 100%);
+    color: transparent; 
+    background-clip: text; 
+    -webkit-background-clip: text;
+
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
+
+    animation: shine 5s linear infinite;
+}
+
+.ramen-title h1:hover {
+
+    transform: scale(1.05); /* Slight grow effect */
+    filter: drop-shadow(0px 0px 8px rgb(241, 223, 31));
+    transform: scale(1.02);
+
+    animation-duration: 1s;
+}
+
+@keyframes shine{
+    0%{
+        background-position: 0% 0%;
+    }
+
+    100%{
+        background-position: 0% 100%;
+    }
+}
+
+
+
+
+
+
+
+.ramen-para {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: transparent; 
+    background-image: linear-gradient(to bottom, #fff5ba 0%, #ffb347 50%, #d35400 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
+    font-weight: 300;
+    
+    
+    opacity: 0;
+}
+
+
+.ramen-reveal.ramen-para {
+    animation: gentle-float 1.8s ease-out forwards;
+}
+
+
+@keyframes gentle-float {
+    0% {
+        opacity: 0; 
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1; 
+        transform: translateY(0);
+    }
+}
+
+
+/* JAVASCRIPT SECTION */
+
+.ramen-friday-alert {
+    background: linear-gradient(135deg, #332d0e 0%, #1a1a1a 100%);
+    color: #ffd700;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-family: 'MochiGreen', sans-serif;
+    border: 1px solid #c48c1e;
+    box-shadow: 0 0 10px rgba(196, 140, 30, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nudge {
+    animation: bounce 0.5s ease-in-out !important;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-25px) scale(1.1); }
+}
+
+/* Scroll Reveal */
+.ramen-para, .ramen-title {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); /* Smoother, professional curve */
+}
+
+.ramen-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* RAMEN SHOWCASE */ 
+
+.ramen-showcase-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.ramen-art-panel, .ramen-info-panel {
+    flex: 1;
+    border: 3px dashed #ffd700;
+    border-radius: 20px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ramen-art-panel img {
+    width: 100%;
+    image-rendering: pixelated;
+}
+
+.ramen-name {
+    color: #ffd700;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.ramen-desc {
+    color: #fff;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.order-btn {
+    background: #ffd700;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.ramen-showcase-title {
+    text-align: center;
+    font-size: 3rem;
+    margin: 40px 0;
+}
+
+.ramen-showcase-title span {
+    display: inline-block;
+    background: linear-gradient(to bottom, #ff0000 0%, #ff4500 40%, #ff8c00 70%, #000000 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: bounce-letter 2s infinite;
+}
+
+/* Staggered delay for the bounce wave */
+.ramen-showcase-title span:nth-child(1) { animation-delay: 0.05s; }
+.ramen-showcase-title span:nth-child(2) { animation-delay: 0.1s; }
+.ramen-showcase-title span:nth-child(3) { animation-delay: 0.15s; }
+.ramen-showcase-title span:nth-child(4) { animation-delay: 0.2s; }
+/* ... continue this pattern for each span ... */
+
+@keyframes bounce-letter {
+    0%, 100% { transform: translateY(0); }
+    15% { transform: translateY(-10px); }
+    30% { transform: translateY(0); }
+}
+
+.ramen-showcase-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    padding: 20px;
+}
+
+.ramen-art-panel, .ramen-info-panel {
+    flex: 1;
+    border: 3px dashed #ffd700;
+    border-radius: 20px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.pixel-art-featured {
+    width: 100%;
+    image-rendering: pixelated;
+}
+
+
+
+.ramen-name { color: #ffd700; margin-bottom: 15px; }
+.ramen-desc { color: #fff; line-height: 1.6; }
+
+#ramen-carousel {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.ramen-display-panel {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+}
+
+.nav-arrow {
+    background: transparent;
+    border: 2px solid #ffd700;
+    color: #ffd700;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
